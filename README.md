@@ -22,8 +22,8 @@ inputs -
 
 outputs - 
 
-# Code 3 - Quantum Tomography And Bell Test/Quantum Tomography - Density Matrices.py
-Description - This code is to be used after code 3 has been implemented. It takes the thersholded quantum tomography files, 
+# Code 4 - Quantum Tomography And Bell Test/Quantum Tomography - Density Matrices.py
+Description - This code is to be used after code 3 has been implemented. It takes the thersholded quantum tomography files, binarizes the intensities into 0s or 1s, accounts for the same pulse being measured in a few consequenting frame. It then uses the binarized intensities in order to construct the effective quantum state of the system, from which a density matrix is produced by taking a ket bra multiplication of this state with itself. The density matrices are calculated and plotted for each of the 3 videos (10, 25, 50 bits). The plots are on a 3d graph, as usually used in tomography. In addition, this code mimics the HWP by switching Bob's H and V states, to reproduce density matrices with a HWP. These matrices are then additinally plotted, resulting in a total of 6 density matrices, and 1 plot with the 6 density matrices plotted in 3d.
 
 inputs - 
 
