@@ -10,11 +10,11 @@ Outputs - This code produces a random series of 0s and 1s at the length of the n
 
 # Code 2 - Quantum Tomography - Simulation.py
 
-Description - This code contains the simulation of the quantum tomography experiment. The system is completely mimiced by the code, including the optical setup and the random polarization of the laser. The code emulates 3 total bit amounts, 1000, 5000, 10000 and then constructs the density matrices of the corresponding measurements, and plots them on a 3d graph similarly the density matrices codes. Additionally, the code mimics the HWP by switching Bob's H and V states, plotting the corresponding density matrices as well.
+Description - This code contains the simulation of the quantum tomography experiment. The system is completely mimiced by the code, including the optical setup and the random polarization of the laser. The code emulates 3 total bit amounts, 1000, 5000 and 10000. It then constructs the density matrices of the corresponding measurements, and plots them on a 3d graph similarly the density matrices codes. Additionally, the code mimics the HWP by switching Bob's H and V states, plotting the corresponding density matrices as well.
 
 inputs - 
 
-outputs -
+outputs - 6 Density matrices in numerical form, for the following cases: 1000, 5000 and 1000 bits, with or without a HWP. 1 Graph of the 6 density matrices in a 3d representation, with the corresponding labels. 
 
 
 # Code 3 - Quantum Tomography - Raw Data Extraction.py
@@ -22,7 +22,7 @@ Description - This code is used to extract the raw pulse intensity data of the t
 
 Inputs - 
 
-outputs - 
+outputs - 3 raw intensity npz files, named " " for i in [10, 25, 50]
 
 # Code 4 - Quantum Tomography - Thresholds.py
 Description - This code is to be used after code 3 has been implemented. It takes the unfiltered pulse intensity graphs and allows the user to manually choose an intensity threshold for each graph by clicking on the intensity graph at some intensity height. This is done in order to filter noise. 
@@ -45,7 +45,13 @@ inputs -
 
 outputs -
 
-# Code 7 
+# Code 7 - Bell Test - S Calculation.py
+Description - This code is to be used after code 6 has been implemented. It takes the raw intensity data files of the bell test measurements, allows the user to choose a uniform threshold across all 16 videos for Alice and Bob separetly. It then measurse the overlap between Alice's and Bob's measurements for each video, and counts these overlaps to calculate the Bell parameter S defined in our article. It then gives this S value as an output.
+
+inputs - 
+
+outputs -
+
 
 
 
