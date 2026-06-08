@@ -3,23 +3,23 @@ This repository stores all of the code used for the "Divide And Conquer: Emulati
 
 In the second part of the experiment we showed that the system breaks the Bell inequality, and is then essentially quantum. We used a similar random polarization pulsed laser, with the same optical devices, only now there are only two detectors labeled Alice and Bob, and instead of the polarized beam splitter there is a polarizier, set in 16 different angle compositions, consisting of all possible combinations of (a,b) for a in [0,90,45,-45] and b in [22.5,-22.5,67.5,112.5]. For each of these combinations a measurement video was produced, resulting in 16 measurement videos. These videos are then analyzed by this code to produce the Bell parameter S, which is bigger then 2 and hence indicates that the system is essentially quantum. 
 
-# Code 1 - Random Polarization.py
-Description - This code provides the random polarizations of the laser, through a random series of 0s and 1s.
+## Code 1 - Random Polarization.py
+###Description - This code provides the random polarizations of the laser, through a random series of 0s and 1s.
 
-Inputs - This code takes the number of pulses as an input.
+###Inputs - This code takes the number of pulses as an input.
 
-Outputs - This code produces a random series of 0s and 1s at the length of the number of pulses.
+###Outputs - This code produces a random series of 0s and 1s at the length of the number of pulses.
 
-# Code 2 - Quantum Tomography - Simulation.py
+## Code 2 - Quantum Tomography - Simulation.py
 
-Description - This code contains the simulation of the quantum tomography experiment. The system is completely mimiced by the code, including the optical setup and the random polarization of the laser. The code emulates 3 total bit amounts, 1000, 5000 and 10000. It then constructs the density matrices of the corresponding measurements, and plots them on a 3d graph similarly the density matrices codes. Additionally, the code mimics the HWP by switching Bob's H and V states, plotting the corresponding density matrices as well.
+###Description - This code contains the simulation of the quantum tomography experiment. The system is completely mimiced by the code, including the optical setup and the random polarization of the laser. The code emulates 3 total bit amounts, 1000, 5000 and 10000. It then constructs the density matrices of the corresponding measurements, and plots them on a 3d graph similarly the density matrices codes. Additionally, the code mimics the HWP by switching Bob's H and V states, plotting the corresponding density matrices as well.
 
-inputs - There are no inputs needed in order to run this code. The number of bits may be changed manually if one desires to do so.
+###inputs - There are no inputs needed in order to run this code. The number of bits may be changed manually if one desires to do so.
 
-outputs - 6 Density matrices in numerical form, for the following cases: 1000, 5000 and 1000 bits, with or without a HWP. 1 Graph of the 6 density matrices in a 3d representation, with the corresponding labels. 
+###outputs - 6 Density matrices in numerical form, for the following cases: 1000, 5000 and 1000 bits, with or without a HWP. 1 Graph of the 6 density matrices in a 3d representation, with the corresponding labels. 
 
 
-# Code 3 - Quantum Tomography - Raw Data Extraction.py
+## Code 3 - Quantum Tomography - Raw Data Extraction.py
 Description - This code is used to extract the raw pulse intensity data of the tomography measurement videos. It takes the tomography videos as inputs, provides a graph of the total intensity for each frame of the first video from which the user may select 5 frames with maximal intensity. From these 5 frames, the user may then choose 4 rectangles where the intensities of each of the measured pulses (Alice H/V and Bob H/V) are to be measured. It then goes over the three tomography video files (10, 25, 50 bits) and produces intensity graphs for each of the pulses throughout time, which are then stored into npz files.
 
 Inputs - "BASE DIR" - allows the user to set the filename to match their computer, for example: r"C:\Users\User\Downloads". 3  measurement video mp.4 files, named  "Tomography i bits.mp4" for i in [10, 25, 50]. The user may change this by changing the files in "VIDEO_FILES"
