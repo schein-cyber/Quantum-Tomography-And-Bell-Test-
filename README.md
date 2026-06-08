@@ -4,11 +4,14 @@ This repository stores all of the code used for the "Divide And Conquer: Emulati
 In the second part of the experiment we showed that the system breaks the Bell inequality, and is then essentially quantum. We used a similar random polarization pulsed laser, with the same optical devices, only now there are only two detectors labeled Alice and Bob, and instead of the polarized beam splitter there is a polarizier, set in 16 different angle compositions, consisting of all possible combinations of (a,b) for a in [0,90,45,-45] and b in [22.5,-22.5,67.5,112.5]. For each of these combinations a measurement video was produced, resulting in 16 measurement videos. These videos are then analyzed by this code to produce the Bell parameter S, which is bigger then 2 and hence indicates that the system is essentially quantum. 
 
 ## Code 1 - Random Polarization.py
-### Description - This code provides the random polarizations of the laser, through a random series of 0s and 1s.
+### Description -
+This code provides the random polarizations of the laser, through a random series of 0s and 1s.
 
-### Inputs - This code takes the number of pulses as an input.
+### Inputs - 
+This code takes the number of pulses as an input.
 
-### Outputs - This code produces a random series of 0s and 1s at the length of the number of pulses.
+### Outputs - 
+This code produces a random series of 0s and 1s at the length of the number of pulses.
 
 ## Code 2 - Quantum Tomography - Simulation.py
 
