@@ -76,6 +76,14 @@ The 16 raw intesity npz files produced from the previous code, named "results_Be
 ### outputs 
 Table of 16 N(a,b) values for all angle combinations of a in [0,90,45,-45] and b in [22.5,-22.5,67.5,112.5]. The value of the Bell parameter S with an error dS. It additionally plots 16 conincidence graphs, 1 for each angle configuration. 16 thresholded intensity graphs of both Alice and Bob, for a in [0,90,45,-45] and b in [22.5,-22.5,67.5,112.5], with the threshold present as a line, labeled by the corresponding angles. These files are saved as "Thresholded Intensity Graphs a,b.png", in a newly geenrated folder called "Validation_Plots".
 
+## Code 8 - define_camera_gary.m
+### Description 
+This is a matlab code used to operate our cameras in the experiment, and to preview them
+### inputs 
+4 Webcams connected to the computer.
+
+### outputs 
+Preview of the 4 webcams, presented on the computer.
 
 
 
