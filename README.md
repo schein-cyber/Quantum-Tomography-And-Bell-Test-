@@ -16,13 +16,13 @@ This code produces a random series of 0s and 1s at the length of the number of p
 ## Code 2 - Quantum Tomography - Simulation.py
 
 ### Description 
-This code contains the simulation of the quantum tomography experiment. The system is completely mimiced by the code, including the optical setup and the random polarization of the laser. The code emulates 3 total bit amounts, 1000, 5000 and 10000. It then constructs the density matrices of the corresponding measurements, and plots them on a 3d graph similarly the density matrices codes. Additionally, the code mimics the HWP by switching Bob's H and V states, plotting the corresponding density matrices as well.
+This code contains the simulation of the quantum tomography experiment. The system is completely mimiced by the code, including the optical setup and the random polarization of the laser. The code emulates 3 total bit amounts, 50, 100 and 1000. It then constructs the density matrices of the corresponding measurements, and plots them on a 3d graph similarly the density matrices codes. Additionally, the code mimics the HWP by switching Bob's H and V states, plotting the corresponding density matrices as well.
 
 ### inputs 
 There are no inputs needed in order to run this code. The number of bits may be changed manually if one desires to do so.
 
 ### outputs 
-6 Density matrices in numerical form, for the following cases: 1000, 5000 and 1000 bits, with or without a HWP. 1 Graph of the 6 density matrices in a 3d representation, with the corresponding labels. 
+6 Density matrices in numerical form, for the following cases: 50, 100 and 1000 bits, with or without a HWP. 6 Graphs of the 6 density matrices in a 3d representation, with the corresponding labels. 
 
 
 ## Code 3 - Quantum Tomography - Raw Data Extraction.py
@@ -47,23 +47,23 @@ The 3 raw intesity npz files produced from the previous code, named "results_tom
 
 ## Code 5 - Quantum Tomography - Density Matrices.py
 ### Description 
-This code is to be used after code 4 has been implemented. It takes the thersholded quantum tomography files, binarizes the intensities into 0s or 1s, accounts for the same pulse being measured in a few consequenting frame. It then uses the binarized intensities in order to construct the effective quantum state of the system, from which a density matrix is produced by taking a ket bra multiplication of this state with itself. The density matrices are calculated and plotted for each of the 3 videos (10, 25, 50 bits). The plots are on a 3d graph, as usually used in tomography. In addition, this code mimics the HWP by switching Bob's H and V states, to reproduce density matrices with a HWP. These matrices are then additinally plotted, resulting in a total of 6 density matrices, and 1 plot with the 6 density matrices plotted in 3d.
+This code is to be used after code 4 has been implemented. It takes the thersholded quantum tomography files, binarizes the intensities into 0s or 1s, accounts for the same pulse being measured in a few consequenting frame. It then uses the binarized intensities in order to construct the effective quantum state of the system, from which a density matrix is produced by taking a ket bra multiplication of this state with itself. The density matrices are calculated and plotted for each of the 3 videos (10, 25, 50 bits). The plots are on a 3d graph, as usually used in tomography. In addition, this code mimics the HWP by switching Bob's H and V states, to reproduce density matrices with a HWP. These matrices are then additinally plotted, resulting in a total of 6 density matrices, and 6 plots of the density matrices plotted in 3d.
 
 ### inputs 
 The 3 thresholded intensity npz files  produced from the previous code, named "thresholded_results_tomography_ן_bits.npz" for i in [10, 25, 50]. 
 
 ### outputs 
-6 Density matrices in numerical form, labeled for the corresponding amount of bits [10,25,50] and with or with a HWP. 1 plot with the 6 density matrices plotted in 3d, with the corresponding titles.
+6 Density matrices in numerical form, labeled for the corresponding amount of bits [10,25,50] and with or with a HWP. 6 plots of the density matrices plotted in 3d, with the corresponding titles.
 
 ## Code 6 - Bell Test - Raw Data Extraction.py
 ### Description 
-This code is used to extract the raw pulse intensity data of the bell test measurement videos.
+This code is used to extract the raw pulse intensity data of the bell test measurement videos. The code loads each video separetely, loads the highest intensity frame for this video, and then allows the user to choose the two rectangles for the intensity measurements by clicking on two points on the frame. The code allows the user to label these ROIs (Alice and Bob in our analysis). The code then processes the video using these ROIs and produces intensity over time graphs for both Alice and Bob, which are stored as npz files.
 
 ### inputs 
-16 
+16 mp.4 Video files named ""Bell a, b.mp4"" for a in [0,90,45,-45] and b in [22.5,-22.5,67.5,112.5]. The user should change "BASE_DIR" and "PROJECT_DIR" to match their own computer
 
 ### outputs 
-
+16 Raw intesity npz files, named "results_Bell_a__b.npz" for a in [0,90,45,-45] and b in [22.5,-22.5,67.5,112.5].
 
 ## Code 7 - Bell Test - S Calculation.py
 ### Description 
@@ -74,7 +74,7 @@ The 16 raw intesity npz files produced from the previous code, named "results_Be
 
 
 ### outputs 
-Table of 16 N(a,b) values for all angle combinations ofa in [0,90,45,-45] and b in [22.5,-22.5,67.5,112.5]. The value of the Bell parameter S.
+Table of 16 N(a,b) values for all angle combinations ofa in [0,90,45,-45] and b in [22.5,-22.5,67.5,112.5]. The value of the Bell parameter S with an error dS.
 
 
 
