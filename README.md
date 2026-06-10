@@ -67,7 +67,7 @@ This code is used to extract the raw pulse intensity data of the bell test measu
 
 ## Code 7 - Bell Test - S Calculation.py
 ### Description 
-This code is to be used after code 6 has been implemented. It takes the raw intensity data files of the bell test measurements, allows the user to choose a uniform threshold across all 16 videos for Alice and Bob separetly. It then measurse the overlap between Alice's and Bob's measurements for each video, and counts these overlaps to calculate the Bell parameter S defined in our article. It then gives this S value as an output.
+This code is to be used after code 6 has been implemented. It takes the raw intensity data files of the bell test measurements, allows the user to choose a uniform threshold across all 16 videos for Alice and Bob separetly. It then measurse the overlap between Alice's and Bob's measurements for each video, and counts these overlaps to calculate the Bell parameter S defined in our article. It then gives this S value as an output. To estimate the error, each coincidence count is treated as a binomial variable, since each pulse has a probability of being a coincidence, and is independent of the others. n = N_pulses, and we estimated p = N(a,b)/N_pulses, and then used the standard deviation of a binomial variable as the error for the coincidence count. From the error in each count, the code estimates the error dS and outputs it as well. 
 
 ### inputs 
 The 16 raw intesity npz files produced from the previous code, named "results_Bell_a__b.npz" for a in [0,90,45,-45] and b in [22.5,-22.5,67.5,112.5].
