@@ -67,14 +67,14 @@ This code is used to extract the raw pulse intensity data of the bell test measu
 
 ## Code 7 - Bell Test - S Calculation.py
 ### Description 
-This code is to be used after code 6 has been implemented. It takes the raw intensity data files of the bell test measurements, allows the user to choose a uniform threshold across all 16 videos for Alice and Bob separetly. It then measurse the overlap between Alice's and Bob's measurements for each video, and counts these overlaps to calculate the Bell parameter S defined in our article. It then gives this S value as an output. To estimate the error, each coincidence count is treated as a binomial variable, since each pulse has a probability of being a coincidence, and is independent of the others. n = N_pulses, and we estimated p = N(a,b)/N_pulses, and then used the standard deviation of a binomial variable as the error for the coincidence count. From the error in each count, the code estimates the error dS and outputs it as well. 
+This code is to be used after code 6 has been implemented. It takes the raw intensity data files of the bell test measurements, allows the user to choose a uniform threshold across all 16 videos for Alice and Bob separetly. It then measurse the overlap between Alice's and Bob's measurements for each video, and counts these overlaps to calculate the Bell parameter S defined in our article. It then gives this S value as an output. To estimate the error, each coincidence count is treated as a binomial variable, since each pulse has a probability of being a coincidence, and is independent of the others. n = N_pulses, and we estimated p = N(a,b)/N_pulses, and then used the standard deviation of a binomial variable as the error for the coincidence count. From the error in each count, the code estimates the error dS and outputs it as well. The code additionally plots 32 thresholded intensity graphs, 16 for Alice and 16 for Bob, labeled by the corresponding angles. It additionally plots 16 conincidence graphs, 1 for each angle configuration. Finally, it saves 16 thresholded intensity graphs of both Alice and Bob, for each corresponding angle, with the threshold present as a line, these files are save as .png files.
 
 ### inputs 
 The 16 raw intesity npz files produced from the previous code, named "results_Bell_a__b.npz" for a in [0,90,45,-45] and b in [22.5,-22.5,67.5,112.5].
 
 
 ### outputs 
-Table of 16 N(a,b) values for all angle combinations ofa in [0,90,45,-45] and b in [22.5,-22.5,67.5,112.5]. The value of the Bell parameter S with an error dS.
+Table of 16 N(a,b) values for all angle combinations of a in [0,90,45,-45] and b in [22.5,-22.5,67.5,112.5]. The value of the Bell parameter S with an error dS. 32 thresholded intensity graphs, 16 for Alice and 16 for Bob, labeled by the corresponding angles. It additionally plots 16 conincidence graphs, 1 for each angle configuration. 16 thresholded intensity graphs of both Alice and Bob, for a in [0,90,45,-45] and b in [22.5,-22.5,67.5,112.5], with the threshold present as a line, these files are saved as "Thresholded Intensity Graphs a,b.png".
 
 
 
