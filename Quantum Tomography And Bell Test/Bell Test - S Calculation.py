@@ -174,6 +174,9 @@ FILES = [
 alice_idx = 0
 bob_idx = 1
 
+# Jumps 5 frames backward and 5 frames forward to trace matches
+COINCIDENCE_WINDOW = 5
+
 print("\nProcessing Coincidences...")
 print("=" * 50)
 
@@ -207,7 +210,17 @@ for file_name in FILES:
     alice_signal = binary_signals[alice_idx]
     bob_signal = binary_signals[bob_idx]
 
-    coincidence_raw = (alice_signal & bob_signal)
+    # --- FLEXIBLE SLIDING COINCIDENCE WINDOW ---
+    # Create an active array kernel spanning [-5, +5] frames around a signal element
+    kernel = np.ones(2 * COINCIDENCE_WINDOW + 1)
+
+    # Smooth/dilate Bob's binary logic across the target timeline window bounds
+    windowed_bob_signal = (np.convolve(bob_signal, kernel, mode='same') > 0).astype(int)
+
+    # Logical AND checks if Alice fires while Bob's signal is high within the window profile
+    coincidence_raw = (alice_signal & windowed_bob_signal)
+
+    # Clean and debounce using dead-time parameters
     coincidence_clean = np.zeros_like(coincidence_raw)
     count = 0
     idx = 0
@@ -215,16 +228,23 @@ for file_name in FILES:
     while idx < len(coincidence_raw):
         if coincidence_raw[idx] == 1:
             count += 1
-            coincidence_clean[idx] = 1
-            idx += DEAD_TIME_FRAMES
+            coincidence_clean[idx] = 1  # Mark the exact frame we counted
+            idx += DEAD_TIME_FRAMES  # Skip dead time frames
         else:
             idx += 1
 
+    # Save the count N(i,j)
     results[(angle_i, angle_j)] = count
 
+    # 3. Plotting
     fig, ax = plt.subplots(figsize=(12, 4))
+
+    # Plotting raw coincidences in light grey to see the width of the pulses
     ax.step(time_axis, coincidence_raw, where="post", color="lightgray", linewidth=4, label="Raw Coincidence (Width)")
+
+    # Plotting the counted pulse in red
     ax.step(time_axis, coincidence_clean, where="post", color="red", linewidth=2, label="Counted Event (Debounced)")
+
     ax.set_ylim(-0.1, 1.2)
     ax.set_yticks([0, 1])
     ax.set_xlabel("Time (s)")
