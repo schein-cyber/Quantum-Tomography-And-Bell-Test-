@@ -13,7 +13,7 @@ DATA_DIR = r"C:\Users\User\PycharmProjects\Quantum Tomography And Bell Test"
 # Set these values before running the script!
 ALICE_THRESHOLD = 41000  # Replace with your chosen threshold for Alice
 BOB_THRESHOLD = 13030  # Replace with your chosen threshold for Bob
-DEAD_TIME_FRAMES = 5
+DEAD_TIME_FRAMES = 20
 
 # Channel Mapping (Matches your previous scripts)
 ALICE_IDX = 0
